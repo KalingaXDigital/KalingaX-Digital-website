@@ -113,3 +113,4 @@ footer{background:#08184a;color:#cdd5f0;padding:16px 0;font-size:11px}
 @media(max-width:860px){.inquiry-grid{grid-template-columns:1fr;gap:24px}.inquiry-copy{padding-top:0}.inquiry-copy h2{font-size:32px}}
 @media(max-width:560px){.lead-form{padding:20px}.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){.js-ready .rv{opacity:1;transform:none}}
+@media(max-width:980px){.js-ready .rv{opacity:1;transform:none;transition:none}}
