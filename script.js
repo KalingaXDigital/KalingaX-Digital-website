@@ -41,6 +41,7 @@ inquiryForm.addEventListener('submit',async event=>{
 document.querySelectorAll('.menu a').forEach(a=>a.onclick=()=>setMenuOpen(false));
 addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){setMenuOpen(false);menuButton.focus()}});
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
+document.documentElement.classList.add('js-ready');
 document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%4)*90+'ms';io.observe(el)});
 const tr=document.getElementById('tr'),step=()=>tr.querySelector('.pc').offsetWidth+18;let hold=false;
 document.getElementById('nx').onclick=()=>go(1);document.getElementById('pv').onclick=()=>go(-1);
