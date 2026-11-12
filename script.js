@@ -1,8 +1,8 @@
-import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './supabase-config.js';
 const menu=document.getElementById('menu'),menuButton=document.getElementById('bg');
 function setMenuOpen(open){menu.classList.toggle('open',open);menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')}
 menuButton.onclick=()=>setMenuOpen(!menu.classList.contains('open'));
 const inquiryForm=document.getElementById('inquiryForm'),formStatus=document.getElementById('formStatus');
+const {url:SUPABASE_URL,publishableKey:SUPABASE_PUBLISHABLE_KEY}=window.KALINGAX_SUPABASE_CONFIG;
 inquiryForm.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!inquiryForm.reportValidity())return;
