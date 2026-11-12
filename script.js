@@ -38,6 +38,7 @@ inquiryForm.addEventListener('submit',async event=>{
     inquiryForm.removeAttribute('aria-busy');
   }
 });
+window.KALINGAX_FORM_READY=true;
 menu.addEventListener('click',event=>{if(event.target.closest('a'))setMenuOpen(false)});
 addEventListener('hashchange',()=>setMenuOpen(false));
 addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){setMenuOpen(false);menuButton.focus()}});

@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
 <title>KalingaX Digital – Your Digital Growth Partner</title>
-<link rel="stylesheet" href="styles.css?v=20261112-mobile-fix"></head><body>
+<link rel="stylesheet" href="styles.css?v=20261112-mobile-form-fix"></head><body>
 <svg width="0" height="0" style="position:absolute"><defs><linearGradient id="ig" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f9a825"/><stop offset=".5" stop-color="#e1306c"/><stop offset="1" stop-color="#6a3de8"/></linearGradient>
 <symbol id="globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20"/></symbol>
 <symbol id="app" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M12 18h.01"/></symbol>
@@ -87,7 +87,7 @@
 
 <section id="inquiry" class="inquiry"><div class="wrap inquiry-grid">
 <div class="inquiry-copy rv"><div class="eyebrow">START A PROJECT</div><h2>Tell Us What You Need</h2><p>Share a few details about your business and goals. Our team can follow up to discuss the right digital solution for you.</p><div class="inquiry-points"><span><svg class="i"><use href="#ck"/></svg>Free initial consultation</span><span><svg class="i"><use href="#ck"/></svg>Website, app and marketing support</span><span><svg class="i"><use href="#ck"/></svg>Local support in Bhubaneswar</span></div></div>
-<form class="lead-form rv" id="inquiryForm" method="post">
+<form class="lead-form rv" id="inquiryForm" method="post" onsubmit="if(!window.KALINGAX_FORM_READY){event.preventDefault();const status=document.getElementById('formStatus');status.hidden=false;status.className='form-status error';status.textContent='The form could not load. Please try again or contact us by phone, email, or WhatsApp.';return false}">
 <h3>Request a Free Consultation</h3><p class="form-note">Please fill in your contact details and tell us how we can help. Submitting sends these details to KalingaX Digital for follow-up.</p>
 <div class="form-grid">
 <div class="field"><label for="leadName">Full name <span aria-hidden="true">*</span></label><input id="leadName" name="name" type="text" autocomplete="name" maxlength="100" required></div>
@@ -113,5 +113,5 @@
 <div><svg class="i"><use href="#pin"/></svg> Bhubaneswar, Odisha<br><svg class="i"><use href="#tel"/></svg> <a href="tel:+917852987171">+91 7852987171</a><br><svg class="i"><use href="#mail"/></svg> <a href="mailto:kalingaxdigital@gmail.com">kalingaxdigital@gmail.com</a><br><svg class="i"><use href="#globe"/></svg> <a href="https://kalingaxdigital.com" target="_blank" rel="noopener">kalingaxdigital.com</a></div></div>
 <div class="copy">© 2026 KalingaX Digital. All Rights Reserved.</div></div></footer>
 
-<script src="supabase-config.js"></script>
-<script src="script.js?v=20261112-menu-close" defer></script></body></html>
+<script src="supabase-config.js?v=20261112-form-fix"></script>
+<script src="script.js?v=20261112-mobile-form-fix" defer></script></body></html>
