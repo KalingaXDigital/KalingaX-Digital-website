@@ -38,7 +38,7 @@
 
 <header><div class="wrap nav">
 <a class="logo" href="#home"><img src="assets/kalingax-logo.png" alt="KalingaX Digital – Your Digital Growth Partner"></a>
-<nav class="menu" id="menu" aria-label="Primary navigation"><a class="on" href="#home">Home</a><a href="#services">Services ⌄</a><a href="#portfolio">Portfolio</a><a href="#about">About Us</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a></nav>
+<nav class="menu" id="menu" aria-label="Primary navigation" onclick="if(event.target.closest('a')){this.classList.remove('open');document.getElementById('bg').setAttribute('aria-expanded','false');document.getElementById('bg').setAttribute('aria-label','Open navigation menu')}"><a class="on" href="#home">Home</a><a href="#services">Services ⌄</a><a href="#portfolio">Portfolio</a><a href="#about">About Us</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a></nav>
 <a class="btn gold" href="https://wa.me/917852987171" target="_blank" rel="noopener"><svg class="i" style="font-size:18px"><use href="#wa"/></svg>Get in Touch</a>
 <button class="burger" id="bg" type="button" aria-label="Open navigation menu" aria-controls="menu" aria-expanded="false" onclick="const open=document.getElementById('menu').classList.toggle('open');this.setAttribute('aria-expanded',String(open));this.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu')">☰</button></div></header>
 
@@ -114,4 +114,4 @@
 <div class="copy">© 2026 KalingaX Digital. All Rights Reserved.</div></div></footer>
 
 <script src="supabase-config.js"></script>
-<script src="script.js?v=20261112-menu-fix" defer></script></body></html>
+<script src="script.js?v=20261112-menu-close" defer></script></body></html>

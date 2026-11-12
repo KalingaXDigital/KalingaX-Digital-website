@@ -38,7 +38,8 @@ inquiryForm.addEventListener('submit',async event=>{
     inquiryForm.removeAttribute('aria-busy');
   }
 });
-document.querySelectorAll('.menu a').forEach(a=>a.onclick=()=>setMenuOpen(false));
+menu.addEventListener('click',event=>{if(event.target.closest('a'))setMenuOpen(false)});
+addEventListener('hashchange',()=>setMenuOpen(false));
 addEventListener('keydown',e=>{if(e.key==='Escape'&&menu.classList.contains('open')){setMenuOpen(false);menuButton.focus()}});
 const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.15});
 document.documentElement.classList.add('js-ready');
