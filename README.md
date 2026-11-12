@@ -1,17 +1,31 @@
 # KalingaX Digital website
 
-Static website for KalingaX Digital with a responsive landing page, portfolio and consultation inquiry form.
+A Vite-powered vanilla JavaScript website for KalingaX Digital. The existing responsive design, brand colours, hero visuals, portfolio interactions, navigation, inquiry form, and Supabase submission are preserved. No React or other UI framework is used.
 
-## Files
+## Requirements
 
-- `index.html` — page content and semantic markup
-- `styles.css` — responsive design and hero styling
-- `script.js` — navigation, animations, portfolio controls, and form submission
-- `supabase-config.js` — public Supabase project URL and publishable key
-- `assets/` — hero background and brand logo
-- `supabase/setup.sql` — table, grants, and insert-only RLS policy
-- `SUPABASE_SETUP.md` — database setup and deployment notes
+- Node.js 20.19+ or 22.12+
+- npm
 
-## Run locally
+## Start locally
 
-Open `index.html` in a browser for the static page. The inquiry form requires network access to the configured Supabase project and the SQL setup in `supabase/setup.sql`.
+```sh
+npm install
+cp .env.example .env
+npm run dev
+```
+
+On Windows PowerShell, copy the environment template with `Copy-Item .env.example .env`. The public Supabase URL and publishable key in the template point to the configured project. They can be overridden through `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY`. Never place a Supabase secret or service-role key in a `VITE_*` variable.
+
+## Production build
+
+```sh
+npm run build
+npm run preview
+```
+
+Vite writes the deployable static site to `dist/`. The relative base path in `vite.config.js` supports GitHub Pages project URLs as well as a custom domain.
+
+## Supabase
+
+Form data is submitted to the configured project's `public.customer_inquiries` table. See [SUPABASE_SETUP.md](SUPABASE_SETUP.md) and [`supabase/setup.sql`](supabase/setup.sql) for the table schema and insert-only RLS policy.

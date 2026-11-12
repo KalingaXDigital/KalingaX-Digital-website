@@ -1,6 +1,6 @@
 # Supabase setup for KalingaX Digital
 
-The website form writes to the existing Supabase project `hyiyqbouakbccmhrhsno` and the `public.customer_inquiries` table. The project URL and publishable browser key are kept in `supabase-config.js`; a publishable key is intended for browser use. Never put a Supabase secret or service-role key in this website.
+The Vite website form writes to the existing Supabase project `hyiyqbouakbccmhrhsno` and the `public.customer_inquiries` table. The project URL and publishable browser key are kept in `.env` (based on `.env.example`); a publishable key is intended for browser use. Never put a Supabase secret or service-role key in this website.
 
 ## Create or configure the table
 
@@ -13,10 +13,14 @@ If a table with this name already exists but has different columns or types, rev
 
 ## Website configuration
 
-`supabase-config.js` contains only the project URL and publishable key used by `script.js`. If the project changes, replace both values with that project's URL and publishable key. Do not use a secret/service-role key in a static website.
+`supabase-config.js` reads the URL and publishable key from Vite environment variables, falling back to the configured project values. Copy `.env.example` to `.env` to override them. Do not put a secret/service-role key in a `VITE_*` variable or static website.
 
 The frontend sends `name`, `phone`, `email`, `service`, and `message` to `/rest/v1/customer_inquiries`. The database sets `id` and `created_at`. RLS allows the `anon` role to insert submissions and does not allow public reads, updates, or deletes.
 
 ## Project region
 
 The website uses the already-created project. Its region is managed in Supabase project settings and does not need to be specified in these website files. Keep the existing India region if that is where the project was provisioned.
+
+## Run and build the Vite site
+
+Install dependencies with `npm install`, copy `.env.example` to `.env`, then run `npm run dev`. Create the production site with `npm run build`; Vite outputs static files into `dist/`.
