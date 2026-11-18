@@ -85,24 +85,3 @@ if (inquiryForm && formStatus && config) {
   });
   window.KALINGAX_FORM_READY = true;
 }
-
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const revealElements = document.querySelectorAll('.rv');
-document.documentElement.classList.add('js-ready');
-
-if ('IntersectionObserver' in window && !reduceMotion.matches) {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealElements.forEach((element, index) => {
-    element.style.transitionDelay = `${(index % 4) * 90}ms`;
-    observer.observe(element);
-  });
-} else {
-  revealElements.forEach(element => element.classList.add('in'));
-}

@@ -3,10 +3,12 @@
 ## Website changes included
 
 - The homepage and every service page use a self-referencing canonical URL.
-- The sitemap lists the homepage and the service pages. Update `lastmod` only when a page has materially changed.
+- The sitemap lists the homepage and all seven service pages. Its `lastmod` values reflect this material content update; update them only when a page changes significantly.
 - `robots.txt` allows crawling and points to the sitemap.
 - The homepage describes KalingaX Digital as an `Organization`. A street address was not added because the website currently gives only Bhubaneswar, Odisha; do not publish an address unless it is accurate and intended to be public.
-- Service pages use distinct page titles, descriptions, headings, and useful service-specific content.
+- Homepage and service pages have unique titles and descriptions, canonical URLs, social-share image metadata, and service-specific content.
+- The hero photo and logo have optimized WebP versions; the hero uses responsive image sources and descriptive alt text.
+- Service pages include original, service-specific answers to common customer questions. No testimonials, ratings, portfolio items, or client logos are fabricated.
 - The portfolio and testimonial sections were removed until real work and customer feedback are available.
 
 ## Google Search Console
