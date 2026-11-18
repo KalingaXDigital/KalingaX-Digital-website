@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" fill="none">
+  <defs>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(580 310 -330 616 1080 515)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D4A24A" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#0A1D5C" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="528" x2="1437" y1="841" y2="197" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9D712C"/>
+      <stop offset=".48" stop-color="#E0B95E"/>
+      <stop offset="1" stop-color="#F6D58B"/>
+    </linearGradient>
+    <linearGradient id="bar" x1="0" x2="0" y1="1" y2="0">
+      <stop stop-color="#C8963E" stop-opacity=".02"/>
+      <stop offset="1" stop-color="#E3B95E" stop-opacity=".54"/>
+    </linearGradient>
+    <pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.4" fill="#C8963E" fill-opacity=".36"/>
+    </pattern>
+    <g id="spoke">
+      <path d="M1120 252v72" stroke="url(#gold)" stroke-linecap="round" stroke-width="11"/>
+      <circle cx="1120" cy="247" r="12" fill="#0A1D5C" stroke="url(#gold)" stroke-width="5"/>
+    </g>
+    <filter id="softGlow" x="510" y="105" width="1050" height="850" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="22"/>
+    </filter>
+  </defs>
+
+  <ellipse cx="1100" cy="530" fill="url(#halo)" rx="580" ry="430"/>
+  <path d="M682 789 1397 184" stroke="#D2A64F" stroke-opacity=".1" stroke-width="2"/>
+  <path d="M690 837h754M742 781h702M794 725h650M846 669h598M898 613h546M950 557h494M1002 501h442M1054 445h390M1106 389h338M1158 333h286M1210 277h234" stroke="#D8B45E" stroke-opacity=".11"/>
+
+  <g opacity=".72">
+    <path d="M688 837V706h78v131M806 837V644h78v193M924 837V571h78v266M1042 837V494h78v343M1160 837V407h78v430M1278 837V313h78v524" fill="url(#bar)"/>
+    <path d="M688 706h78M806 644h78M924 571h78M1042 494h78M1160 407h78M1278 313h78" stroke="#E1B75D" stroke-opacity=".55" stroke-width="2"/>
+  </g>
+
+  <path d="M628 759c130-21 184-82 272-91 97-10 135-44 225-67 94-23 150-66 239-122" stroke="#F0CB70" stroke-opacity=".24" stroke-width="18" filter="url(#softGlow)"/>
+  <path d="M628 759c130-21 184-82 272-91 97-10 135-44 225-67 94-23 150-66 239-122" stroke="url(#gold)" stroke-linecap="round" stroke-width="5"/>
+  <path d="m1336 472 31 7-3-32" stroke="#F0CB70" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+  <g fill="#F2CD77" stroke="#0A1D5C" stroke-width="6"><circle cx="900" cy="668" r="10"/><circle cx="1125" cy="601" r="10"/><circle cx="1364" cy="479" r="10"/></g>
+
+  <circle cx="1120" cy="570" r="338" stroke="#D3A953" stroke-opacity=".08" stroke-width="32"/>
+  <circle cx="1120" cy="570" r="319" stroke="url(#gold)" stroke-opacity=".64" stroke-width="4"/>
+  <circle cx="1120" cy="570" r="286" stroke="#E5BD68" stroke-opacity=".5" stroke-width="3"/>
+  <circle cx="1120" cy="570" r="251" stroke="#D2A64F" stroke-opacity=".4" stroke-width="2"/>
+  <g opacity=".9">
+    <use href="#spoke"/>
+    <use href="#spoke" transform="rotate(15 1120 570)"/><use href="#spoke" transform="rotate(30 1120 570)"/>
+    <use href="#spoke" transform="rotate(45 1120 570)"/><use href="#spoke" transform="rotate(60 1120 570)"/>
+    <use href="#spoke" transform="rotate(75 1120 570)"/><use href="#spoke" transform="rotate(90 1120 570)"/>
+    <use href="#spoke" transform="rotate(105 1120 570)"/><use href="#spoke" transform="rotate(120 1120 570)"/>
+    <use href="#spoke" transform="rotate(135 1120 570)"/><use href="#spoke" transform="rotate(150 1120 570)"/>
+    <use href="#spoke" transform="rotate(165 1120 570)"/><use href="#spoke" transform="rotate(180 1120 570)"/>
+    <use href="#spoke" transform="rotate(195 1120 570)"/><use href="#spoke" transform="rotate(210 1120 570)"/>
+    <use href="#spoke" transform="rotate(225 1120 570)"/><use href="#spoke" transform="rotate(240 1120 570)"/>
+    <use href="#spoke" transform="rotate(255 1120 570)"/><use href="#spoke" transform="rotate(270 1120 570)"/>
+    <use href="#spoke" transform="rotate(285 1120 570)"/><use href="#spoke" transform="rotate(300 1120 570)"/>
+    <use href="#spoke" transform="rotate(315 1120 570)"/><use href="#spoke" transform="rotate(330 1120 570)"/>
+    <use href="#spoke" transform="rotate(345 1120 570)"/>
+  </g>
+  <circle cx="1120" cy="570" r="77" fill="#09163B" fill-opacity=".76" stroke="url(#gold)" stroke-width="6"/>
+  <circle cx="1120" cy="570" r="46" stroke="#E9C36D" stroke-opacity=".66" stroke-width="3"/>
+  <circle cx="1120" cy="570" r="18" fill="url(#gold)"/>
+  <path d="M1120 510v120M1060 570h120M1078 528l84 84M1162 528l-84 84" stroke="#E9C36D" stroke-opacity=".28" stroke-width="3"/>
+
+  <path d="M1270 212c78 26 145 74 198 137" stroke="#D6B15C" stroke-opacity=".2" stroke-dasharray="3 12" stroke-width="3"/>
+  <path d="M1460 557c-20 96-75 182-153 245" stroke="#D6B15C" stroke-opacity=".18" stroke-dasharray="3 12" stroke-width="3"/>
+  <path d="M800 465c54-69 123-120 202-148" stroke="#D6B15C" stroke-opacity=".16" stroke-dasharray="3 12" stroke-width="3"/>
+  <rect x="1155" y="175" width="340" height="655" fill="url(#dots)" opacity=".3"/>
+</svg>

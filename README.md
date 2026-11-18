@@ -10,7 +10,7 @@ Static website for KalingaX Digital with a responsive landing page, individual s
 - `script.js` — mobile navigation, lightweight hero animation, and form submission
 - `robots.txt` and `sitemap.xml` — search engine crawling and page discovery
 - `supabase-config.js` — public Supabase project URL and publishable key
-- `assets/` — hero background and brand logo
+- `assets/` — lightweight SVG hero illustration and brand logo
 - `supabase/setup.sql` — table, grants, and insert-only RLS policy
 - `SUPABASE_SETUP.md` — database setup and deployment notes
 - `SEO_SETUP.md` — Search Console and local business profile follow-up steps
