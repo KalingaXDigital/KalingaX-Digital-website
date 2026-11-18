@@ -7,10 +7,10 @@ Static website for KalingaX Digital with a responsive landing page, individual s
 - `index.html` — homepage content, metadata, and organization structured data
 - `*-bhubaneswar.html` — individual service landing pages
 - `styles.css` — responsive design and hero styling
-- `script.js` — mobile navigation, lightweight hero animation, and form submission
+- `script.js` — mobile navigation, section reveals, and form submission
 - `robots.txt` and `sitemap.xml` — search engine crawling and page discovery
 - `supabase-config.js` — public Supabase project URL and publishable key
-- `assets/` — lightweight SVG hero illustration and brand logo
+- `assets/` — brand logo
 - `supabase/setup.sql` — table, grants, and insert-only RLS policy
 - `SUPABASE_SETUP.md` — database setup and deployment notes
 - `SEO_SETUP.md` — Search Console and local business profile follow-up steps
