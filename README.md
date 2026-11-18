@@ -14,4 +14,4 @@ Static website for KalingaX Digital with a responsive landing page, portfolio an
 
 ## Run locally
 
-Open `index.html` in a browser for the static page. The inquiry form requires network access to the configured Supabase project and the SQL setup in `supabase/setup.sql`.
+Serve the folder over HTTP instead of opening `index.html` as a `file://` URL. For example, from this folder run `python -m http.server 8000`, then open `http://localhost:8000`. The inquiry form requires network access to the configured Supabase project and the SQL setup in `supabase/setup.sql`. For production, open the deployed HTTPS domain.

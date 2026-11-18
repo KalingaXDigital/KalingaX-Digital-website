@@ -6,6 +6,12 @@ const {url:SUPABASE_URL,publishableKey:SUPABASE_PUBLISHABLE_KEY}=window.KALINGAX
 inquiryForm.addEventListener('submit',async event=>{
   event.preventDefault();
   if(!inquiryForm.reportValidity())return;
+  if(location.protocol==='file:'){
+    formStatus.hidden=false;
+    formStatus.className='form-status error';
+    formStatus.textContent='Please open the live HTTPS website to send this inquiry. A local file preview cannot submit to Supabase reliably.';
+    return;
+  }
   const submitButton=inquiryForm.querySelector('button[type="submit"]');
   if(submitButton.disabled)return;
   const payload={
@@ -26,11 +32,12 @@ inquiryForm.addEventListener('submit',async event=>{
       headers:{apikey:SUPABASE_PUBLISHABLE_KEY,'Content-Type':'application/json',Prefer:'return=minimal'},
       body:JSON.stringify(payload)
     });
-    if(!response.ok)throw new Error('Inquiry submission failed');
+    if(!response.ok){console.error('Supabase inquiry request failed with HTTP',response.status);throw new Error('Inquiry submission failed');}
     inquiryForm.reset();
     formStatus.className='form-status success';
     formStatus.textContent='Thank you. Your inquiry has been sent. We will contact you soon.';
-  }catch{
+  }catch(error){
+    console.error('Unable to submit inquiry to Supabase:',error);
     formStatus.className='form-status error';
     formStatus.textContent='We could not send your inquiry. Please contact us by phone, email, or WhatsApp and try again later.';
   }finally{
