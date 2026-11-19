@@ -20,6 +20,17 @@ addEventListener('keydown', event => {
   }
 });
 
+// Keep the homepage process accordion exclusive, including in browsers without <details name> support.
+const processSteps = document.querySelectorAll('#process .process-step');
+processSteps.forEach(step => {
+  step.addEventListener('toggle', () => {
+    if (!step.open) return;
+    processSteps.forEach(otherStep => {
+      if (otherStep !== step) otherStep.open = false;
+    });
+  });
+});
+
 const inquiryForm = document.getElementById('inquiryForm');
 const formStatus = document.getElementById('formStatus');
 const config = window.KALINGAX_SUPABASE_CONFIG;

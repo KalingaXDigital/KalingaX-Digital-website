@@ -143,7 +143,13 @@ body{font-size:16px}
 .result-cta{margin-top:5px}
 .industry-range{background:#fff}
 .industry-chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
-.industry-chips span{background:#f8faff}
+.industry-chip{min-height:42px;padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#f8faff;color:var(--navy);font-family:inherit;font-size:12px;font-weight:600;line-height:1.4;text-align:left;cursor:pointer;transition:background-color .18s ease,color .18s ease,border-color .18s ease,box-shadow .18s ease}
+.industry-chip:hover,.industry-chip.is-active{border-color:var(--blue);background:var(--blue);color:#fff;box-shadow:0 5px 14px rgba(23,105,220,.16)}
+.industry-details-result{margin-top:25px;padding:28px;border:1px solid var(--line);border-radius:17px;background:#fff;box-shadow:var(--shadow);scroll-margin-top:92px}
+.industry-details-result>p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+.industry-details-result .result-empty{min-height:120px}
+.industry-details-result .recommendation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:760px){.industry-details-result{padding:21px}.industry-details-result .recommendation-grid{grid-template-columns:1fr}.industry-chip{font-size:12px}}
 @media(max-width:960px){.business-tool-grid{grid-template-columns:minmax(250px,.78fr) minmax(0,1.22fr);gap:17px}.business-picker{padding:22px}.solution-result{padding:23px}.recommendation-grid{grid-template-columns:1fr}}
 @media(max-width:760px){.service-hub-intro{padding:42px 0 25px}.service-hub-intro>.wrap>p,.industry-range>.wrap>p{font-size:14px}.service-hub-list{padding:16px 0 54px}.service-hub-stack{gap:15px}.service-hub-card{grid-template-columns:1fr;gap:16px;padding:22px 18px;border-radius:14px}.hub-number{width:48px;height:48px;border-radius:14px;font-size:17px}.hub-copy h2{font-size:25px}.hub-intro{font-size:14px}.hub-subservices{grid-template-columns:1fr;gap:10px;margin-top:18px}.hub-subservices section{padding:15px}.hub-subservices h3{font-size:15px}.hub-subservices p,.hub-subservices ul{font-size:13px}.hub-benefit{font-size:13px}.service-hub-cta>.wrap{align-items:flex-start;flex-direction:column}.business-tool-section{padding:35px 0 55px}.business-tool-grid{grid-template-columns:1fr;gap:17px}.business-picker{position:static;padding:22px}.solution-result{min-height:300px;padding:21px}.result-empty{min-height:250px}.recommendation-grid{grid-template-columns:1fr}.result-header h2{font-size:26px}.result-block h3{font-size:16px}.result-block>p,.numbered-list,.result-block>ul{font-size:13px}.industry-range{padding:50px 0}}
 @media(min-width:761px){.nav{gap:clamp(12px,1.6vw,22px)}.menu{gap:clamp(12px,1.7vw,24px)}}

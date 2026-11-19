@@ -144,6 +144,8 @@ const businessTypeField = document.getElementById('businessType');
 const businessGoalField = document.getElementById('businessGoal');
 const otherBusinessTypeWrap = document.getElementById('otherBusinessTypeWrap');
 const otherBusinessTypeField = document.getElementById('otherBusinessType');
+const industryButtons = document.querySelectorAll('.industry-chip[data-business-type]');
+const industryDetailsResult = document.getElementById('industryDetailsResult');
 
 function appendText(parent, tagName, className, text) {
   const node = document.createElement(tagName);
@@ -160,6 +162,16 @@ function appendList(parent, items, className = '') {
   parent.append(list);
 }
 
+function showPlaceholder(target, title, description) {
+  target.replaceChildren();
+  const empty = document.createElement('div');
+  empty.className = 'result-empty';
+  appendText(empty, 'span', 'result-icon', '✦');
+  appendText(empty, 'h2', '', title);
+  appendText(empty, 'p', '', description);
+  target.append(empty);
+}
+
 function serviceAnchor(serviceName) {
   const name = serviceName.toLowerCase();
   if (name.includes('seo')) return 'services.html#seo-services';
@@ -174,20 +186,20 @@ function serviceAnchor(serviceName) {
   return 'services.html';
 }
 
-function renderPlan(plan, businessName, goalValue, goalLabel) {
-  result.replaceChildren();
+function renderPlan(plan, businessName, goalValue, goalLabel, target = result) {
+  target.replaceChildren();
   const header = document.createElement('div');
   header.className = 'result-header';
   appendText(header, 'div', 'eyebrow', 'YOUR STARTING PLAN');
   appendText(header, 'h2', '', businessName ? `A digital starting plan for ${businessName}` : `A digital starting plan for ${plan.label}`);
   appendText(header, 'p', '', `Business type: ${plan.label}. This is a tailored starting point to discuss, not a guarantee of results.`);
-  result.append(header);
+  target.append(header);
 
   const challenges = document.createElement('section');
   challenges.className = 'result-block';
   appendText(challenges, 'h3', '', 'Common things to improve');
   appendText(challenges, 'p', '', plan.challenge);
-  result.append(challenges);
+  target.append(challenges);
 
   const selectedServices = document.createElement('section');
   selectedServices.className = 'result-block';
@@ -205,19 +217,19 @@ function renderPlan(plan, businessName, goalValue, goalLabel) {
     serviceGrid.append(card);
   });
   selectedServices.append(serviceGrid);
-  result.append(selectedServices);
+  target.append(selectedServices);
 
   const process = document.createElement('section');
   process.className = 'result-block';
   appendText(process, 'h3', '', 'How we could work through it');
   appendList(process, plan.process, 'numbered-list');
-  result.append(process);
+  target.append(process);
 
   const deliverables = document.createElement('section');
   deliverables.className = 'result-block deliverable-block';
   appendText(deliverables, 'h3', '', 'Possible deliverables');
   appendList(deliverables, plan.outputs);
-  result.append(deliverables);
+  target.append(deliverables);
 
   const outcome = document.createElement('section');
   outcome.className = 'result-block outcome-block';
@@ -233,29 +245,44 @@ function renderPlan(plan, businessName, goalValue, goalLabel) {
     efficiency: 'map one repetitive task, confirm the tools and add a human check where needed.'
   };
   if (goalValue) appendText(outcome, 'p', 'goal-note', `You selected “${goalLabel}”. A useful first focus is to ${goalGuidance[goalValue]}`);
-  result.append(outcome);
+  target.append(outcome);
 
   const note = document.createElement('p');
   note.className = 'results-note';
   note.textContent = 'Actual business growth depends on your offer, market, budget, operations and customer response. We would agree on a realistic scope and measures before starting.';
-  result.append(note);
+  target.append(note);
 
   const cta = document.createElement('a');
   cta.className = 'btn blue result-cta';
   cta.href = 'index.html#inquiry';
   cta.textContent = 'Discuss This Plan →';
-  result.append(cta);
+  target.append(cta);
+}
+
+function getSelectedPlan() {
+  const customType = otherBusinessTypeField.value.trim();
+  return businessTypeField.value === 'other' && customType
+    ? { ...businessPlans.other, label: customType }
+    : (businessPlans[businessTypeField.value] || businessPlans.other);
+}
+
+function getSelectedGoalLabel() {
+  return businessGoalField.options[businessGoalField.selectedIndex]?.textContent || '';
+}
+
+function syncIndustryButtons() {
+  industryButtons.forEach(button => {
+    const selected = button.dataset.businessType === businessTypeField.value;
+    button.classList.toggle('is-active', selected);
+    button.setAttribute('aria-pressed', String(selected));
+  });
 }
 
 picker?.addEventListener('submit', event => {
   event.preventDefault();
   if (!picker.reportValidity()) return;
-  const customType = otherBusinessTypeField.value.trim();
-  const plan = businessTypeField.value === 'other' && customType
-    ? { ...businessPlans.other, label: customType }
-    : (businessPlans[businessTypeField.value] || businessPlans.other);
-  const goalLabel = businessGoalField.options[businessGoalField.selectedIndex]?.textContent || '';
-  renderPlan(plan, businessNameField.value.trim(), businessGoalField.value, goalLabel);
+  showPlaceholder(industryDetailsResult, 'Choose an industry', 'Select an industry below to see a tailored support plan there.');
+  renderPlan(getSelectedPlan(), businessNameField.value.trim(), businessGoalField.value, getSelectedGoalLabel());
   result.scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
@@ -264,4 +291,16 @@ businessTypeField?.addEventListener('change', () => {
   otherBusinessTypeWrap.hidden = !isOther;
   otherBusinessTypeField.required = isOther;
   if (!isOther) otherBusinessTypeField.value = '';
+  syncIndustryButtons();
+  showPlaceholder(result, 'Your business plan will appear here', 'Select a business type and we’ll map out relevant services, the steps we could take and the deliverables to discuss.');
+  showPlaceholder(industryDetailsResult, 'Choose an industry', 'Select an industry below to see a tailored support plan there.');
+});
+
+industryButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    businessTypeField.value = button.dataset.businessType;
+    businessTypeField.dispatchEvent(new Event('change', { bubbles: true }));
+    renderPlan(getSelectedPlan(), businessNameField.value.trim(), businessGoalField.value, getSelectedGoalLabel(), industryDetailsResult);
+    industryDetailsResult.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
 });
