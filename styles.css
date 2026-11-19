@@ -127,7 +127,7 @@ body{font-size:16px}
 .result-empty p,.result-header>p{margin:0;color:var(--muted);font-size:14px;line-height:1.8}
 .result-header{padding-bottom:19px;border-bottom:1px solid var(--line)}
 .result-header h2{margin:10px 0}
-.result-block{margin-top:20px}
+.result-block{margin-top:20px;padding:0}
 .result-block h3{margin:0 0 9px;color:var(--navy);font-size:17px}
 .result-block>p{margin:0;color:var(--muted);font-size:13px;line-height:1.75}
 .recommendation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -154,3 +154,9 @@ body{font-size:16px}
 @media(max-width:760px){.service-hub-intro{padding:42px 0 25px}.service-hub-intro>.wrap>p,.industry-range>.wrap>p{font-size:14px}.service-hub-list{padding:16px 0 54px}.service-hub-stack{gap:15px}.service-hub-card{grid-template-columns:1fr;gap:16px;padding:22px 18px;border-radius:14px}.hub-number{width:48px;height:48px;border-radius:14px;font-size:17px}.hub-copy h2{font-size:25px}.hub-intro{font-size:14px}.hub-subservices{grid-template-columns:1fr;gap:10px;margin-top:18px}.hub-subservices section{padding:15px}.hub-subservices h3{font-size:15px}.hub-subservices p,.hub-subservices ul{font-size:13px}.hub-benefit{font-size:13px}.service-hub-cta>.wrap{align-items:flex-start;flex-direction:column}.business-tool-section{padding:35px 0 55px}.business-tool-grid{grid-template-columns:1fr;gap:17px}.business-picker{position:static;padding:22px}.solution-result{min-height:300px;padding:21px}.result-empty{min-height:250px}.recommendation-grid{grid-template-columns:1fr}.result-header h2{font-size:26px}.result-block h3{font-size:16px}.result-block>p,.numbered-list,.result-block>ul{font-size:13px}.industry-range{padding:50px 0}}
 @media(min-width:761px){.nav{gap:clamp(12px,1.6vw,22px)}.menu{gap:clamp(12px,1.7vw,24px)}}
 @media(min-width:761px) and (max-width:900px){.nav-cta{display:none}.menu{gap:10px;font-size:12px}}
+
+/* Use a simple down chevron for the homepage process accordion. */
+.process-step .step-toggle{font-size:0}
+.process-step .step-toggle::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .18s ease}
+.process-step[open] .step-toggle{background:var(--blue);color:#fff}
+.process-step[open] .step-toggle::before{content:"";transform:translateY(2px) rotate(225deg)}
