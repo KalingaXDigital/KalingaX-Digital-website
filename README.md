@@ -1,10 +1,13 @@
 # KalingaX Digital website
 
-Static website for KalingaX Digital with a responsive landing page, individual service pages and a Supabase consultation inquiry form.
+Static website for KalingaX Digital with a responsive landing page, a detailed service directory, an interactive business solutions guide, individual service pages and a Supabase consultation inquiry form.
 
 ## Files
 
 - `index.html` — homepage content, metadata, and organization structured data
+- `services.html` — all 11 service categories, sub-services, process notes, and business benefits
+- `business-solutions.html` — industry selector and tailored, client-side starting plans
+- `business-solutions.js` — local industry-to-service recommendations; it does not submit or save selector entries
 - `*-bhubaneswar.html` — individual service landing pages
 - `styles.css` — responsive design and hero styling
 - `script.js` — mobile navigation, section reveals, and form submission

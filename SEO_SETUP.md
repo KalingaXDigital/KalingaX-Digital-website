@@ -3,7 +3,7 @@
 ## Website changes included
 
 - The homepage and every service page use a self-referencing canonical URL.
-- The sitemap lists the homepage and all seven service pages. Its `lastmod` values reflect this material content update; update them only when a page changes significantly.
+- The sitemap lists the homepage, service directory, business solutions guide, and individual service pages. Its `lastmod` values reflect this material content update; update them only when a page changes significantly.
 - `robots.txt` allows crawling and points to the sitemap.
 - The homepage describes KalingaX Digital as an `Organization`. A street address was not added because the website currently gives only Bhubaneswar, Odisha; do not publish an address unless it is accurate and intended to be public.
 - Homepage and service pages have unique titles and descriptions, canonical URLs, social-share image metadata, and service-specific content.

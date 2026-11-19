@@ -6,10 +6,18 @@ create table if not exists public.customer_inquiries (
   name text not null check (char_length(btrim(name)) between 1 and 100),
   phone text not null check (char_length(btrim(phone)) between 7 and 24),
   email text not null check (char_length(btrim(email)) between 3 and 254),
-  service text not null check (char_length(btrim(service)) between 1 and 120),
+  service text not null,
   message text not null check (char_length(btrim(message)) between 1 and 2000),
   created_at timestamptz not null default now()
 );
+
+-- Keep the service label open to new website options while bounding its size.
+-- This also replaces any older check that only accepted a fixed service list.
+alter table public.customer_inquiries
+  drop constraint if exists customer_inquiries_service_check;
+alter table public.customer_inquiries
+  add constraint customer_inquiries_service_check
+  check (char_length(btrim(service)) between 1 and 120);
 
 alter table public.customer_inquiries enable row level security;
 

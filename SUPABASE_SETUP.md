@@ -5,11 +5,11 @@ The website form writes to the existing Supabase project `hyiyqbouakbccmhrhsno` 
 ## Create or configure the table
 
 1. Open the Supabase dashboard for project `hyiyqbouakbccmhrhsno`.
-2. Open **SQL Editor** and run [`supabase/setup.sql`](supabase/setup.sql). The script creates the table if it is missing, enables row-level security, and grants anonymous visitors insert-only access.
+2. Open **SQL Editor** and run [`supabase/setup.sql`](supabase/setup.sql). The script creates the table if it is missing, keeps service labels flexible (1–120 characters), enables row-level security, and grants anonymous visitors insert-only access.
 3. In **Table Editor**, confirm `customer_inquiries` has these columns: `id`, `name`, `phone`, `email`, `service`, `message`, and `created_at`.
 4. Submit a test inquiry through the site and check the new row in Table Editor. Do not add a public SELECT policy: visitors should not be able to read customer inquiries.
 
-If a table with this name already exists but has different columns or types, review its existing data before changing the schema; `CREATE TABLE IF NOT EXISTS` does not alter an existing table.
+If a table with this name already exists but has different columns or types, review its existing data before changing the schema; `CREATE TABLE IF NOT EXISTS` does not alter an existing table. The setup script specifically replaces an older fixed service-name check so new service options can be submitted.
 
 ## Website configuration
 
